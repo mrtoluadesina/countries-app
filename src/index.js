@@ -10,7 +10,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 const httpLink = createHttpLink({
-  uri: "/graphql"
+  uri: "http://countries.trevorblades.com/graphql"
 });
 
 const client = new ApolloClient({
