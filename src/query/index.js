@@ -4,6 +4,7 @@ export const ALLCOUNTRIES = gql`
 {
   countries {
     name,
+    code,
     continent {
       name
     },
@@ -11,6 +12,18 @@ export const ALLCOUNTRIES = gql`
     languages {
       name,
     },
+  }
+}
+`;
+
+export const ALLCONTINENTS = gql`
+{
+  continents {
+    name,
+    code,
+    countries {
+      name
+    }
   }
 }
 `;
