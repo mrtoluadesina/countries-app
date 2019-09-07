@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SimpleCard } from "./Cards";
 
-export default function CardList({ data, className }) {
+export default function CardList({ data, className, path }) {
   return (
     <Container className={className}>
       {data.map((data, index) => (
         <Link
-          to={{ pathname: `/countries/${data.code}`, state: data }}
+          to={{ pathname: `${path}/${data.code}`, state: data }}
           style={{ color: "#51525c" }}
           key={index}
         >
