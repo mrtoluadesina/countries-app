@@ -27,6 +27,14 @@ export const SimpleCard = ({ data }) => {
   );
 };
 
+export const LinkCard = ({data}) => {
+  return (
+    <Container continent={data.name}>
+      {data.name}
+    </Container>
+  );
+};
+
 const Container = styled.section`
   width: 130px;
   height: 180px;
