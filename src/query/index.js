@@ -12,6 +12,7 @@ export const ALLCOUNTRIES = gql`
     languages {
       name,
     },
+    emoji,
   }
 }
 `;
@@ -24,6 +25,27 @@ export const ALLCONTINENTS = gql`
     countries {
       name
     }
+  }
+}
+`;
+
+export const GETCOUNTRY = gql`
+query Country($code: String) {
+  country (code: $code) {
+    name,
+    phone,
+    code,
+    continent {
+      name,
+      code
+    },
+    currency,
+    languages {
+      name,
+      native,
+      code
+    },
+    emoji
   }
 }
 `;
