@@ -3,12 +3,14 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Sidebar from "../commons/SideBar";
 import { LinkCard } from "../components/Cards";
+import Header from "../commons/Header";
 
-export default function Home({ links }) {
+export default function Home({ links, headerMetaData }) {
   return (
     <App>
       <Sidebar />
       <section className="app-main">
+        <Header headerMetaData={headerMetaData} />
         {links.map((item, index) => (
           <NavLink key={index} to={item.link}>
             <LinkCard data={item} />
@@ -44,5 +46,8 @@ Home.defaultProps = {
     { name: "home", link: "/" },
     { name: "countries", link: "/countries" },
     { name: "continents", link: "/continents" }
-  ]
+  ],
+  headerMetaData: {
+    title: "My Countries List"
+  }
 };
