@@ -29,9 +29,17 @@ export const SimpleCard = ({ data }) => {
 
 export const LinkCard = ({data}) => {
   return (
-    <Container continent={data.name}>
+    <Container className="full-width" continent={data.name}>
       {data.name}
     </Container>
+  );
+};
+
+export const DetailsCard = () => {
+  return (
+    <Container className="full-width" continent='lightbg'>
+      <h2>This is a Country</h2>
+    </Container>  
   );
 };
 
@@ -47,6 +55,10 @@ const Container = styled.section`
   justify-content: space-between;
   border-left: 5px #9999a20d solid;
   position: relative;
+
+  &.full-width {
+    width: 100%;
+  }
 
   .card-header {
     color: #a6a6ac;
