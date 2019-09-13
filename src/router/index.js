@@ -4,6 +4,7 @@ import Home from "../views/Home";
 import Countries from "../views/Countries";
 import Country from "../views/Country";
 import Continents from "../views/Continents";
+import Continent from '../views/Continent';
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
       <Route path="/countries" exact component={Countries} />
       <Route path="/countries/:code" exact component={Country} />
       <Route path="/continents" exact component={Continents} />
+      <Route path="/continents/:code" exact component={Continent} />
     </Router>
   );
 };
