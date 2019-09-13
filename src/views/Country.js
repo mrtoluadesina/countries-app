@@ -9,7 +9,6 @@ import { Dimmer, Loader } from "semantic-ui-react";
 
 export default function Country(props) {
   let code = props.match.params.code;
-  console.log(code);
   return (
     <App>
       <SideBar />
@@ -17,12 +16,11 @@ export default function Country(props) {
         <Query query={GETCOUNTRY} errorPolicy="all" variables={{ code }}>
           {({ error, data, loading }) =>
             loading ? (
-              <Dimmer active>
-                <Loader contnet="Loading" />
+              <Dimmer active inverted>
+                <Loader size="large" inverted>Loading</Loader>
               </Dimmer>
             ) : (
               <>
-                {console.log(data)}
                 <Header headerMetaData={{ title: data.country.name }} />
                 <DetailsCard data={data.country} />
               </>
