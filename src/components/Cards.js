@@ -27,7 +27,7 @@ export const SimpleCard = ({ data }) => {
   );
 };
 
-export const LinkCard = ({data}) => {
+export const LinkCard = ({ data }) => {
   return (
     <Container className="full-width" continent={data.name}>
       {data.name}
@@ -35,18 +35,42 @@ export const LinkCard = ({data}) => {
   );
 };
 
-export const DetailsCard = () => {
+export const DetailsCard = ({ data }) => {
   return (
-    <Container className="full-width" continent='lightbg'>
-      <h2>This is a Country</h2>
-    </Container>  
+    <Container className="full-width marg-t-sm min-height" continent="lightbg">
+      <div className="half">
+        <h2 className="flag">{data.emoji}</h2>
+      </div>
+      <div className="half">
+        <Section>
+          <h2>{data.name}</h2>
+          <span>Located in {data.continent.name}</span>
+        </Section>
+        <Section>
+          <h2>Languages</h2>
+        </Section>
+        <ul>
+          <li>Currency - {data.currency}</li>
+          <li>Phone - {data.phone}</li>
+          <li>Continent - {data.continent.name}</li>
+          <li>
+            Languages
+            <ul>
+              {data.languages.map((lang, index) => (
+                <li key={index}>{lang.name} - {lang.native}</li>
+              ))}
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </Container>
   );
 };
 
 const Container = styled.section`
   width: 130px;
   height: 180px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   border-radius: 1px;
   padding: 1.5rem 0.6rem;
   background: var(--darkmode-card);
@@ -58,6 +82,14 @@ const Container = styled.section`
 
   &.full-width {
     width: 100%;
+  }
+
+  &.marg-t-sm {
+    margin-top: 1.5rem;
+  }
+
+  &.min-height {
+    min-height: 50vh;
   }
 
   .card-header {
@@ -114,8 +146,20 @@ const Container = styled.section`
     left: -5px;
   }
 
+  .half {
+    flex: 0 0 50%;
+    .flag {
+      font-size: 10rem;
+      line-height: 5rem;
+      padding: 1rem;
+    }
+  }
+
   @media (min-width: 420px) {
     padding: 1.5rem 1.2rem;
+    &.full-width {
+      flex-direction: row;
+    }
 
     .card-body-country {
       h3 {
@@ -129,5 +173,24 @@ const Container = styled.section`
         margin-top: 8px;
       }
     }
+
+    .half {
+      .flag {
+        font-size: 20rem;
+        line-height: 15rem;
+      }
+    }
+  }
+`;
+
+const Section = styled.div`
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+
+  h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: .14rem;
   }
 `;
