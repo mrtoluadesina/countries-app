@@ -14,18 +14,20 @@ export default function Countries({ headerMetaData, data, match }) {
       <section className="app-main">
         <Header headerMetaData={headerMetaData} />
         {window.navigator.onLine ? (
-        <Query query={ALLCOUNTRIES} errorPolicy="all">
-          {({ data, loading }) =>
-            loading ? (
-              <Dimmer active>
-                <Loader content="Loading" />
-              </Dimmer>
-            ) : (
-              <CardList path={match.path} data={data.countries} />
-            )
-          }
-        </Query>
-        ):(
+          <Query query={ALLCOUNTRIES} errorPolicy="all">
+            {({ error, data, loading }) =>
+              loading ? (
+                <Dimmer active>
+                  <Loader content="Loading" />
+                </Dimmer>
+              ) : error ? (
+                <h2>There is an error</h2>
+              ) : (
+                <CardList path={match.path} data={data.countries} />
+              )
+            }
+          </Query>
+        ) : (
           <CardList path={match.path} data={data.countries} />
         )}
       </section>
