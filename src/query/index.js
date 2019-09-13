@@ -49,3 +49,18 @@ query Country($code: String) {
   }
 }
 `;
+
+export const GETCONTINENT = gql`
+query Continent($code: String) {
+  continent (code: $code) {
+    name,
+    countries {
+      name,
+      code,
+      continent {
+        name
+      }
+    }
+  }
+}
+`;
