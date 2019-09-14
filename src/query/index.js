@@ -11,6 +11,7 @@ export const ALLCOUNTRIES = gql`
     currency,
     languages {
       name,
+      native
     },
     emoji,
   }
