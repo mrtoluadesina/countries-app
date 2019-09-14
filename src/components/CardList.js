@@ -28,7 +28,7 @@ const Container = styled.section`
 
   @media (min-width: 420px) {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     &::after {
       content: '';
