@@ -7,7 +7,7 @@ import { GETCONTINENT } from "../query";
 import CardList from "../components/CardList";
 import { Dimmer, Loader } from "semantic-ui-react";
 
-export default function Continent({ headerMetaData, data, match }) {
+export default function Continent({ match }) {
   let code = match.params.code;
   return (
     <App>
@@ -24,8 +24,7 @@ export default function Continent({ headerMetaData, data, match }) {
             ) : (
               <>
                 <Header headerMetaData={{ title: data.continent.name }} />
-                {console.log(data)}
-                <CardList path={match.path} data={data.continent.countries} />
+                <CardList path='countries' data={data.continent.countries} />
               </>
             )
           }
