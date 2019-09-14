@@ -48,14 +48,16 @@ const Container = styled.section`
     img {
       width: 40px;
       height: 40px;
-      animation: spin 40s infinite linear;
+      transform-style: preserve-3d;
+      animation: spin 5s infinite linear;
     }
     @keyframes spin {
       from {
-        transform: rotate(0deg);
+        transform: rotateY(0deg);
+
       }
       to {
-        transform: rotate(360deg);
+        transform: rotateY(360deg);
       }
     }
   }
