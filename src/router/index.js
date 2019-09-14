@@ -14,6 +14,7 @@ const AppRoutes = () => {
       <Route path="/countries/:code" exact component={Country} />
       <Route path="/continents" exact component={Continents} />
       <Route path="/continents/:code" exact component={Continent} />
+      <Route path="/continents/countries/:code" exact component={Country} />
     </Router>
   );
 };
