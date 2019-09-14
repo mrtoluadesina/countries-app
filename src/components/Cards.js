@@ -2,13 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 export const SimpleCard = ({ data }) => {
-  const { continent, name, code, countries } = data;
+  const { continent, name, code, countries, currency, languages } = data;
   return (
     <Container continent={continent ? continent.name : name}>
       <div className="card-header">
         <span className="card-header-title">{code}</span>
         <span className="card-icon">
-          <i className="fas fa-ellipsis-h"></i>
+          <h3>
+            <small>currency</small>
+            {currency}
+          </h3>
         </span>
       </div>
       <div className="card-body">
@@ -21,6 +24,16 @@ export const SimpleCard = ({ data }) => {
         </div>
         <div className="card-body-continent">
           <h2>{continent ? continent.name : name}</h2>
+        </div>
+        <div className="card-body-content">
+          <h3>Languages (English & Native)</h3>
+          <ul>
+            {languages.map((language, index) => (
+              <li key={index}>
+                {language.name} - {language.native}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Container>
@@ -57,7 +70,9 @@ export const DetailsCard = ({ data }) => {
             Languages
             <ul>
               {data.languages.map((lang, index) => (
-                <li key={index}>{lang.name} - {lang.native}</li>
+                <li key={index}>
+                  {lang.name} - {lang.native}
+                </li>
               ))}
             </ul>
           </li>
@@ -68,8 +83,8 @@ export const DetailsCard = ({ data }) => {
 };
 
 const Container = styled.section`
-  width: 130px;
-  height: 180px;
+  width: 300px;
+  height: 200px;
   margin-bottom: 0.5rem;
   border-radius: 1px;
   padding: 1.5rem 0.6rem;
@@ -108,6 +123,14 @@ const Container = styled.section`
     color: #51525c;
     font-weight: 400;
     font-size: 13px;
+    h3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      small {
+        font-size: 10px;
+      }
+    }
   }
 
   .card-body-continent {
@@ -129,6 +152,22 @@ const Container = styled.section`
       font-weight: 600;
       font-size: 1rem;
       margin-top: 2px;
+    }
+  }
+
+  .card-body-content {
+    h3 {
+      font-size: 0.65rem;
+      color: rgb(172, 173, 185);
+      text-transform: capitalize;
+      margin-top: 7px;
+    }
+    ul {
+      li {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-top: 2px;
+      }
     }
   }
 
@@ -156,6 +195,8 @@ const Container = styled.section`
   }
 
   @media (min-width: 420px) {
+    width: 190px;
+    height: 250px;
     padding: 1.5rem 1.2rem;
     &.full-width {
       flex-direction: row;
@@ -191,6 +232,6 @@ const Section = styled.div`
   h2 {
     font-size: 1.8rem;
     text-transform: uppercase;
-    letter-spacing: .14rem;
+    letter-spacing: 0.14rem;
   }
 `;
