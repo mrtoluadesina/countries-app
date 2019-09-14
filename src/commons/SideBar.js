@@ -14,7 +14,10 @@ export default function Sidebar({navIcons}) {
           </Switch>
         </div>
         <NavLink to="/">
-        <img src='/assets/images/logo.png' alt="site_logo" />
+        {/* <img src='/assets/images/logo.png' alt="site_logo" /> */}
+        <div className="logo">
+          <div></div>
+        </div>
         </NavLink>
       </div>
       <div className="app-aside-siteNav">
@@ -45,19 +48,29 @@ const Container = styled.section`
       top: 0;
       margin: 20px 0;
     }
-    img {
+    .logo {
       width: 40px;
-      height: 40px;
-      transform-style: preserve-3d;
-      animation: spin 5s infinite linear;
+        height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      left: 0;
+      margin: auto;
+      div {
+        width: 200%;
+        height: 100%;
+        animation: spin 20s infinite linear;
+        background: url(https://web.opendrive.com/api/v1/download/file.json/NTlfMTQ1MTkzNDhf?inline=1);
+        background-size: cover;
+      }
     }
     @keyframes spin {
-      from {
+      /* from {
         transform: rotateY(0deg);
 
-      }
+      } */
       to {
-        transform: rotateY(360deg);
+        transform: translateX(-50%);
+        /* transform: rotateY(360deg); */
       }
     }
   }
