@@ -166,7 +166,7 @@ const Container = styled.section`
 
   .card-body-content {
     h3 {
-      font-size: 0.65rem;
+      font-size: 0.95rem;
       color: rgb(172, 173, 185);
       text-transform: capitalize;
       margin-top: 7px;
