@@ -8,8 +8,8 @@ export const SimpleCard = ({ data }) => {
       <div className="card-header">
         <span className="card-header-title">{code}</span>
         <span className="card-icon">
+            <span>currency</span>
           <h3>
-            <small>currency</small>
             {currency}
           </h3>
         </span>
@@ -25,16 +25,20 @@ export const SimpleCard = ({ data }) => {
         <div className="card-body-continent">
           <h2>{continent ? continent.name : name}</h2>
         </div>
-        <div className="card-body-content">
-          <h3>Languages (English & Native)</h3>
-          <ul>
-            {languages.map((language, index) => (
-              <li key={index}>
-                {language.name} - {language.native}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {continent ? (
+          <div className="card-body-content">
+            <h3>Languages (English & Native)</h3>
+            <ul>
+              {languages.map((language, index) => (
+                <li key={index}>
+                  {language.name} - {language.native}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </Container>
   );
@@ -84,7 +88,7 @@ export const DetailsCard = ({ data }) => {
 
 const Container = styled.section`
   width: 300px;
-  height: 200px;
+  height: 250px;
   margin-bottom: 0.5rem;
   border-radius: 1px;
   padding: 1.5rem 0.6rem;
@@ -123,13 +127,18 @@ const Container = styled.section`
     color: #51525c;
     font-weight: 400;
     font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    span {
+      font-size: 10px;
+    }
     h3 {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      small {
-        font-size: 10px;
-      }
+      width: 100px;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -195,8 +204,8 @@ const Container = styled.section`
   }
 
   @media (min-width: 420px) {
-    width: 190px;
-    height: 250px;
+    width: 250px;
+    height: 350px;
     padding: 1.5rem 1.2rem;
     &.full-width {
       flex-direction: row;
