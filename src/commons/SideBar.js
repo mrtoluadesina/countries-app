@@ -109,7 +109,7 @@ const Switch = styled.label`
   }
 
   .slider {
-    background-color: #ccc;
+    background-color: var(--font-color);
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -117,22 +117,22 @@ const Switch = styled.label`
     right: 0;
     top: 0;
     transition: 0.4s;
+  }
 
-    &:before {
-      background-color: #fff;
-      bottom: 4px;
-      content: '';
-      height: 16px;
-      left: 3px;
-      top: 2px;
-      position: absolute;
-      transition: 0.4s;
-      width: 16px;
-    }
+  .slider:before {
+    background-color: var(--themeicon-color);
+    bottom: 4px;
+    content: '';
+    height: 16px;
+    left: 3px;
+    top: 2px;
+    position: absolute;
+    transition: 0.4s;
+    width: 16px;
   }
 
   input:checked + .slider {
-    background-color: #66bb6a;
+    background-color: var(--font-color);
   }
 
   input:checked + .slider:before {
@@ -146,7 +146,6 @@ const Switch = styled.label`
   .slider.round:before {
     border-radius: 50%;
   }
-
 `;
 
 Sidebar.defaultProps = {
