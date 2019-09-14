@@ -65,22 +65,22 @@ export const DetailsCard = ({ data }) => {
         </Section>
         <Section>
           <h2>Languages</h2>
-        </Section>
-        <ul>
-          <li>Currency - {data.currency}</li>
-          <li>Phone - {data.phone}</li>
-          <li>Continent - {data.continent.name}</li>
-          <li>
-            Languages
-            <ul>
+          <ul>
               {data.languages.map((lang, index) => (
                 <li key={index}>
                   {lang.name} - {lang.native}
                 </li>
               ))}
             </ul>
-          </li>
-        </ul>
+        </Section>
+        <Section>
+          <h2>Currency</h2>
+          <span>{data.currency}</span>
+        </Section>
+        <Section>
+          <h2>Phone</h2>
+          <span>{data.phone}</span>
+        </Section>
       </div>
     </Container>
   );
@@ -108,7 +108,7 @@ const Container = styled.section`
   }
 
   &.min-height {
-    min-height: 50vh;
+    height: auto;
   }
 
   .card-header {
@@ -195,7 +195,6 @@ const Container = styled.section`
   }
 
   .half {
-    flex: 0 0 50%;
     .flag {
       font-size: 10rem;
       line-height: 5rem;
@@ -225,6 +224,7 @@ const Container = styled.section`
     }
 
     .half {
+      flex: 0 0 50%;
       .flag {
         font-size: 20rem;
         line-height: 15rem;
