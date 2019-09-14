@@ -27,10 +27,12 @@ const Container = styled.section`
   flex-wrap: wrap;
 
   @media (min-width: 420px) {
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
     &::after {
       content: '';
-      flex: auto;
+      /* flex: auto; */
     }
   }
 `;
