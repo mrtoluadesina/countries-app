@@ -1,0 +1,40 @@
+:root {
+  --darkmode-color: #1c1b21;
+  --darkmode-font: #e9e9ea;
+  --darkmode-card: #292930;
+  --lightbg-color: #e9e9ea;
+  --lightbg-font: #1c1b21;
+  --font-color: #e9e9ea;
+
+  --themeicon-color: #1c1b21;
+  --asia-color: #fdcc04;
+  --africa-color: #fd0102;
+  --north-america-color: #07d2bf;
+  --south-america-color: #f38e09;
+  --europe-color: #0096ff;
+  --australia-color: #3ac920;
+  --antarctica-color: #a5f2f3;
+  --oceania-color: #006994;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1c1b21;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
